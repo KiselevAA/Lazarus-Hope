@@ -3,14 +3,17 @@ const path = require('path')
 
 function createWindow () {
     const win = new BrowserWindow({
-      width: 800,
-      height: 600,
+      width: 720,
+      height: 820,
+      titleBarOverlay: false,
+      titleBarStyle: "hidden",
       webPreferences: {
         preload: path.join(__dirname, 'preload.js')
       }
     })
-  
-    win.loadFile('index.html')
+    // Load Login_form
+    win.loadFile('login/index.html')
+    
   }
 
   app.whenReady().then(() => {
