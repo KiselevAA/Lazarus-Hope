@@ -1,5 +1,6 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
+const { contextIsolated } = require('process')
 
 function createWindow () {
     const win = new BrowserWindow({
@@ -7,12 +8,17 @@ function createWindow () {
       height: 820,
       titleBarOverlay: false,
       titleBarStyle: "hidden",
+      frame: true,
       webPreferences: {
-        preload: path.join(__dirname, 'preload.js')
+        //preload: path.join(__dirname, 'preload.js'),
+        preload: path.join(__dirname, 'login_jq.js'),
+        contextIsolated: false
       }
     })
     // Load Login_form
-    win.loadFile('login/index.html')
+    win.loadFile('login.html')
+    //win.loadFile('index.html')
+    win.webContents.openDevTools()
     
   }
 

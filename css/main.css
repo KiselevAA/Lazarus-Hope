@@ -38,16 +38,7 @@ body {
   left: 193px;
   border: 1px solid rgba(0,0,0,1);
 }
-.v8_6 {
-  width: 500px;
-  height: 65px;
-  background: rgba(255,255,255,1);
-  opacity: 1;
-  position: absolute;
-  top: 277px;
-  left: 100px;
-  border: 1px solid rgba(0,0,0,1);
-}
+
 .v8_8 {
   width: 121px;
   color: rgba(0,0,0,1);
@@ -193,19 +184,6 @@ body {
   left: 615px;
   border: 1px solid rgba(0,0,0,1);
 }
-.v8_22 {
-  width: 25px;
-  height: 14px;
-  background: url("../images/v8_22.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 425px;
-  left: 560px;
-  overflow: hidden;
-}
 .v8_23 {
   width: 25px;
   height: 14px;
@@ -236,6 +214,7 @@ body {
   opacity: 1;
   text-align: left;
 }
+
 .v8_26 {
   font-size:  25px;
   width: 500px;
@@ -250,19 +229,56 @@ body {
   text-indent: 10px;
 }
 .v8_26::-webkit-input-placeholder{
-  opacity: 0;
-}
-/*.v8_26[type="text"]:focus {
-  width: 156px;
-  color: rgba(157,157,156,0);
-  position: absolute;
-  top: 422px;
+  opacity: 1;
+  color: rgba(157,157,156,1);
+  text-align: left;
+  width: 262px;
+  top: 296px;
   left: 119px;
   font-family: Montserrat;
   font-weight: SemiBold;
   font-size: 18px;
+}
+.v8_6 {
+  font-size:  25px;
+  width: 500px;
+  height: 65px;
+  background: rgba(255,255,255,1);
   opacity: 1;
+  position: absolute;
+  top: 277px;
+  left: 100px;
+  border: 1px solid rgba(0,0,0,1);
+  box-sizing: border-box;
+  text-indent: 10px;
+}
+.v8_6::-webkit-input-placeholder{
+  opacity: 1;
+  color: rgba(157,157,156,1);
   text-align: left;
-}*/
-
+  width: 262px;
+  top: 296px;
+  left: 119px;
+  font-family: Montserrat;
+  font-weight: SemiBold;
+  font-size: 18px;
+}
+.v8_22 {
+  width: 25px;
+  height: 14px;
+  background: url("../img/visible_passw_login.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 425px;
+  left: 560px;
+  overflow: hidden;
+  outline: 0;
+  outline-offset: 0;
+  box-shadow: none;
+  padding: 0;
+  border:none;
+}
 
