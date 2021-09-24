@@ -2,7 +2,6 @@ const { app, BrowserWindow } = require('electron')
 const path = require('path')
 const { contextIsolated } = require('process')
 const { Client } = require('ssh2');
-const { Pool } = require('pg');
 
 function createWindow () {
 
@@ -21,10 +20,9 @@ function createWindow () {
     // Load Login_form
     win.loadFile('login.html')
     //win.loadFile('index.html')
-    win.webContents.openDevTools();
+    //win.webContents.openDevTools();
 
-    
-    
+
     const conn = new Client();
     conn.on('ready', () => {
       console.log('Client :: ready');
@@ -47,27 +45,7 @@ function createWindow () {
     });
     
 
-    var config = {
-      user: 'postgres', 
-      database: 'postgres', 
-      password: '5381', 
-      host: '127.0.0.0', 
-      port: 5433, 
-      max: 10,
-      idleTimeoutMillis: 0,
-      connectionTimeoutMillis: 0
-      };
-
-    const pool = new Pool(config);
-    pool.on('error', function (err, client) {
-      console.error('idle client error', err.message, err.stack);
-    });
-    pool.query('SELECT $1::int AS number', ['2'], function(err, res) {
-      if(err) {
-          return console.error('error running query', err);
-      }
-      console.log('number:', res.rows[0].number);
-    });
+    
   }
 
   app.whenReady().then(() => {
