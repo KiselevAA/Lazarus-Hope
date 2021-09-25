@@ -2,6 +2,8 @@ const { app, BrowserWindow } = require('electron')
 const path = require('path')
 const { contextIsolated } = require('process')
 const { Client } = require('ssh2');
+const pg = require('pg');
+
 
 function createWindow () {
 
@@ -22,30 +24,51 @@ function createWindow () {
     //win.loadFile('index.html')
     //win.webContents.openDevTools();
 
+    var pg = require('pg'),
+        ssh2 = require('ssh2');
 
-    const conn = new Client();
-    conn.on('ready', () => {
-      console.log('Client :: ready');
-      conn.exec('uptime', (err, stream) => {
-        if (err) throw err;
-        stream.on('close', (code, signal) => {
-          console.log('Stream :: close :: code: ' + code + ', signal: ' + signal);
-          conn.end();
-        }).on('data', (data) => {
-          console.log('STDOUT: ' + data);
-        }).stderr.on('data', (data) => {
-          console.log('STDERR: ' + data);
-        });
+    var pgHost = 'localhost', // remote hostname/ip
+    pgPort = 5433,
+    proxyPort = 9090,
+    ready = false;
+
+    var proxy = require('net').createServer(function(sock) {
+      if (!ready)
+        return sock.destroy();
+      c.forwardOut(sock.remoteAddress, sock.remotePort, pgHost, pgPort, function(err, stream) {
+        if (err)
+          return sock.destroy();
+        sock.pipe(stream);
+        stream.pipe(sock);
       });
-    }).connect({
-      host: '192.168.1.11',
-      port: 22,
-      username: 'artem',
-      password:'5381'
     });
-    
+    proxy.listen(proxyPort, '127.0.0.1');
 
-    
+    var c = new ssh2();
+    c.connect({
+      host : '192.168.1.11',
+      port : 22,
+      username : 'artem',
+      password : ''
+    });
+    c.on('connect', function() {
+      console.log('Connection :: connect');
+    });
+    c.on('ready', function() {
+      ready = true;
+      var conString = 'postgres://postgres:@127.0.0.1:' + proxyPort + '/postgres',
+          client = new pg.Client(conString);
+      client.connect(function(err) {
+        // ....
+        client
+          .query('INSERT INTO test(id) VALUES($1) RETURNING *', ['123'])
+          .then(res => {
+          console.log(res.rows[0])
+          // { name: 'brianc', email: 'brian.m.carlson@gmail.com' }
+        })
+        .catch(e => console.error(e.stack))
+      });
+    });
   }
 
   app.whenReady().then(() => {
