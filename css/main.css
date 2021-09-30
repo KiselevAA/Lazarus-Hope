@@ -29,16 +29,25 @@ body {
 }
 
 .v8_4 {
-  width: 312px;
+  width: 200px;
   height: 50px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
   top: 551px;
-  left: 193px;
+  left: 400px;
   border: 1px solid rgba(0,0,0,1);
 }
-
+.v8_5 {
+  width: 200px;
+  height: 50px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 551px;
+  left: 100px;
+  border: 1px solid rgba(0,0,0,1);
+}
 .v8_8 {
   width: 121px;
   color: rgba(0,0,0,1);
@@ -56,7 +65,19 @@ body {
   color: rgba(0,0,0,1);
   position: absolute;
   top: 564px;
-  left: 320px;
+  left: 165px;
+  font-family: Montserrat;
+  font-weight: SemiBold;
+  font-size: 18px;
+  opacity: 1;
+  text-align: left;
+}
+.v8_10 {
+  width: 60px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 564px;
+  left: 440px;
   font-family: Montserrat;
   font-weight: SemiBold;
   font-size: 18px;

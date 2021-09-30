@@ -22,9 +22,9 @@ function createWindow () {
     // Load Login_form
     win.loadFile('login.html')
     //win.loadFile('index.html')
-    //win.webContents.openDevTools();
+    win.webContents.openDevTools();
 
-    var pg = require('pg'),
+    /*var pg = require('pg'),
         ssh2 = require('ssh2');
 
     var pgHost = 'localhost', // remote hostname/ip
@@ -68,7 +68,7 @@ function createWindow () {
         })
         .catch(e => console.error(e.stack))
       });
-    });
+    });*/
   }
 
   app.whenReady().then(() => {

@@ -32,7 +32,6 @@ window.addEventListener('DOMContentLoaded', function () {
         case 'text': passww_in.setAttribute("type","password"); break;
       }
     }
-    
   })
 }
 )
