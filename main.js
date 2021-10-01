@@ -4,25 +4,26 @@ const { contextIsolated } = require('process')
 const { Client } = require('ssh2');
 const pg = require('pg');
 
-
+const dir_login = __dirname +'/app/login';
 function createWindow () {
 
     const win = new BrowserWindow({
-      width: 720,
-      height: 820,
+      width: 1500,
+      height: 900,
       titleBarOverlay: false,
       titleBarStyle: "hidden",
-      frame: true,
+      frame: false,
+      transparent: true,
       webPreferences: {
         //preload: path.join(__dirname, 'preload.js'),
-        preload: path.join(__dirname, 'login_jq.js'),
+        //preload: path.join(dir_login, 'index.js'),
         contextIsolated: false
       }
     })
     // Load Login_form
-    win.loadFile('login.html')
+    win.loadFile(path.join(dir_login,'index.html'))
     //win.loadFile('index.html')
-    win.webContents.openDevTools();
+    //win.webContents.openDevTools();
 
     /*var pg = require('pg'),
         ssh2 = require('ssh2');
