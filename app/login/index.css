@@ -3,8 +3,8 @@
 }.Page{
   display:block;
   margin:auto;
-  width:auto;
-  height:auto;
+  width:1500px;
+  height:900px;
   pointer-events:auto;
 }
 .Page-outer{
@@ -50,15 +50,6 @@
 .Group-15{
   position:relative;
   z-index:5;
-  pointer-events:none;
-  margin-left:0px;
-  width:741.52px;
-  min-width:741.52px;
-  height:900px;
-  margin-top:0px;
-  margin-bottom:0px;
-  min-height:900px;
-  border-radius: 10px;
 }
 .Group-15-outer{
   pointer-events:none;
@@ -85,14 +76,9 @@
   display:flex;
 }
 .Vector-202{
-  position:relative;
-  z-index:7;
-  pointer-events:none;
-  margin-left:0%;
-  width:100%;
-  height:100%;
-  margin-top:0%;
-  content:url(assets/images/Vector_202.png);
+  position: relative;
+  z-index: 7;
+  content: url(assets/images/Vector_202.png);
 }
 .Vector-202-outer{
   pointer-events:none;
@@ -3780,6 +3766,27 @@
   left:0;
   top:0;
 }
+.Bregistration{ 
+  border: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  font-size: 15px;
+  color: white;
+  background-color: transparent;
+  position: relative;
+  width: 215.99px;
+  min-width: 215.99px;
+  height: 16.62px;
+  min-height: 16.62px;
+  pointer-events: all;
+  top: 650px;
+  z-index: 1000;
+  right: 518px;
+}
+
 .Group-12{
   position:relative;
   z-index:35;
@@ -4377,15 +4384,17 @@
 .Vector-119{
   position:relative;
   z-index:98;
-  pointer-events:none;
+  pointer-events: all;
   margin-left:59.2%;
   width:30.066666666666666%;
   height:5.666666666666667%;
   margin-top:38.6%;
-  content:url(assets/images/Vector_119.png);
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,1);
+  font-size: 18px;
 }
 .Vector-119-outer{
-  pointer-events:none;
   z-index:98;
   position:absolute;
   display:flex;
@@ -4393,19 +4402,37 @@
   height:100%;
   left:0;
   top:0;
+  box-sizing: border-box;
+  
 }
+.Vector-119::-webkit-input-placeholder{
+  opacity: 1;
+  color: rgba(157,157,156,1);
+  /*text-align: left;*/
+  width: 262px;
+  top: 296px;
+  left: 100px;
+  right: 20px;
+  font-family: Montserrat;
+  font-weight: SemiBold;
+  font-size: 18px;
+}
+
 .Vector-120{
-  position:relative;
-  z-index:97;
-  pointer-events:none;
-  margin-left:59.2%;
-  width:30.066666666666666%;
-  height:5.666666666666667%;
-  margin-top:31.466666666666665%;
-  content:url(assets/images/Vector_120.png);
+  position: absolute;
+  z-index: 97;
+  pointer-events: all;
+  width: 30.066666666666666%;
+  height: 5.666666666666667%;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,1);
+  font-size: 18px;
+  top: 475px;
+  right: 163px;
 }
 .Vector-120-outer{
-  pointer-events:none;
+  pointer-events:all;
   z-index:97;
   position:absolute;
   display:flex;
@@ -4413,6 +4440,18 @@
   height:100%;
   left:0;
   top:0;
+}
+.Vector-120::-webkit-input-placeholder{
+  opacity: 1;
+  color: rgba(157,157,156,1);
+  text-align: left;
+  width: 262px;
+  top: 296px;
+  left: 100px;
+  right: 20px;
+  font-family: Montserrat;
+  font-weight: SemiBold;
+  font-size: 18px;
 }
 .Vector-203{
   position:relative;

@@ -27,6 +27,7 @@
     "electron": "^14.0.1"
   },
   "dependencies": {
+    "electron-ipc-stream": "^0.2.0",
     "electron-squirrel-startup": "^1.0.0",
     "jquery": "^3.6.0",
     "knex": "^0.95.11",
