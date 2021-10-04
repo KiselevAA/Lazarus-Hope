@@ -7,7 +7,24 @@ const pg = require('pg');
 const dir_login = __dirname +'/app/login';
 
   app.whenReady().then(() => {
+    
+    let RegistrationWin;
 
+    function init_registration(){
+       RegistrationWin = new BrowserWindow({
+        width: 600,
+        height: 450,
+        titleBarOverlay: false,
+        titleBarStyle: "hidden",
+        frame: false,
+        transparent: true,
+        resizable:false,
+        webPreferences: {
+          preload: path.join(dir_login, 'registration.js'),
+          contextIsolated: false
+        }
+      })
+    }
     const win = new BrowserWindow({
       width: 1500,
       height: 900,
@@ -23,6 +40,7 @@ const dir_login = __dirname +'/app/login';
       }
     })
 
+    
     function createWindow () {
 
     
@@ -89,14 +107,17 @@ const dir_login = __dirname +'/app/login';
     })
 
     ipcMain.on('BRegistration_init', (event, arg) => {
-      // Load Registration_form
-      win.webPreferences.preload(path.join(dir_login,'registration.js'))
-      win.loadFile(path.join(dir_login,'registration.html'))
-      //win.loadFile('index.html')
-      //win.webContents.openDevTools();
+      win.hide();
+      init_registration();
+      RegistrationWin.loadFile(path.join(dir_login,'registration.html'))
+    })
+
+    ipcMain.on('Registration_Exit', (event, arg) => {
+      RegistrationWin.close();
+      win.show();
     })
   })
-
+  
   
 
 

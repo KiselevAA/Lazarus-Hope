@@ -1,0 +1,7 @@
+.rendered-form{
+    z-index: 1;
+    background-image: url(img/registration.jpg);
+}
+.Header{
+    z-index: 2;
+}
