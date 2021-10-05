@@ -6,6 +6,8 @@ const pg = require('pg');
 
 const dir_login = __dirname +'/app/login';
 
+let withDebug = true;
+
   app.whenReady().then(() => {
     
     let RegistrationWin;
@@ -47,7 +49,11 @@ const dir_login = __dirname +'/app/login';
       // Load Login_form
       win.loadFile(path.join(dir_login,'index.html'))
       //win.loadFile('index.html')
-      win.webContents.openDevTools();
+      if (withDebug)
+       {
+        win.webContents.openDevTools();
+       }
+      
   
       /*var pg = require('pg'),
           ssh2 = require('ssh2');
@@ -110,6 +116,7 @@ const dir_login = __dirname +'/app/login';
       win.hide();
       init_registration();
       RegistrationWin.loadFile(path.join(dir_login,'registration.html'))
+      RegistrationWin.webContents.openDevTools();
     })
 
     ipcMain.on('Registration_Exit', (event, arg) => {
