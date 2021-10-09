@@ -54,9 +54,7 @@ let withDebug = true;
         win.webContents.openDevTools();
        }
       
-  
-      /*var pg = require('pg'),
-          ssh2 = require('ssh2');
+
   
       var pgHost = 'localhost', // remote hostname/ip
       pgPort = 5433,
@@ -75,31 +73,20 @@ let withDebug = true;
       });
       proxy.listen(proxyPort, '127.0.0.1');
   
-      var c = new ssh2();
+      var c = new Client();
       c.connect({
         host : '192.168.1.11',
         port : 22,
-        username : 'artem',
-        password : ''
+        username : 'lh_user',
+        password : 'lh_user1'
       });
       c.on('connect', function() {
         console.log('Connection :: connect');
       });
       c.on('ready', function() {
         ready = true;
-        var conString = 'postgres://postgres:@127.0.0.1:' + proxyPort + '/postgres',
-            client = new pg.Client(conString);
-        client.connect(function(err) {
-          // ....
-          client
-            .query('INSERT INTO test(id) VALUES($1) RETURNING *', ['123'])
-            .then(res => {
-            console.log(res.rows[0])
-            // { name: 'brianc', email: 'brian.m.carlson@gmail.com' }
-          })
-          .catch(e => console.error(e.stack))
-        });
-      });*/
+        
+      });
     }
 
     createWindow()
