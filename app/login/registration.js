@@ -80,7 +80,9 @@ buttonReg.addEventListener('click',function(){
   client = new pg.Client(conString);
   client.connect(function(err) {
     console.log('we connected to db')
-          })
+  })
+
+  client.end();
   })
 })
 

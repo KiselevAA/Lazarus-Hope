@@ -28,8 +28,8 @@ let withDebug = true;
       })
     }
     const win = new BrowserWindow({
-      width: 1500,
-      height: 900,
+      width: 600,
+      height: 450,
       titleBarOverlay: false,
       titleBarStyle: "hidden",
       frame: false,
@@ -47,7 +47,7 @@ let withDebug = true;
 
     
       // Load Login_form
-      win.loadFile(path.join(dir_login,'index.html'))
+      win.loadFile(path.join(dir_login,'new_login.html'))
       //win.loadFile('index.html')
       if (withDebug)
        {
