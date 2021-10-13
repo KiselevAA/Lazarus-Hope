@@ -6,7 +6,7 @@ const pg = require('pg');
 
 const dir_login = __dirname +'/app/login';
 
-let withDebug = true;
+let withDebug = false;
 
   app.whenReady().then(() => {
     
@@ -14,8 +14,24 @@ let withDebug = true;
 
     function init_registration(){
        RegistrationWin = new BrowserWindow({
-        width: 600,
-        height: 450,
+        width: 450,
+        height: 600,
+        titleBarOverlay: false,
+        titleBarStyle: "hidden",
+        frame: false,
+        transparent: true,
+        resizable:false,
+        webPreferences: {
+          preload: path.join(dir_login, 'new_registration.js'),
+          contextIsolated: false
+        }
+      })
+    }
+    
+    function init_login_succes(){
+      login_succesWin = new BrowserWindow({
+        width: 450,
+        height: 600,
         titleBarOverlay: false,
         titleBarStyle: "hidden",
         frame: false,
@@ -27,16 +43,17 @@ let withDebug = true;
         }
       })
     }
+
     const win = new BrowserWindow({
-      width: 600,
-      height: 450,
+      width: 450,
+      height: 600,
       titleBarOverlay: false,
       titleBarStyle: "hidden",
       frame: false,
       transparent: true,
       resizable:false,
       webPreferences: {
-        preload: path.join(__dirname, 'preload.js'),
+        preload: path.join(dir_login, 'new_login.js'),
         //preload: path.join(dir_login, 'index.js'),
         contextIsolated: false
       }
@@ -102,13 +119,17 @@ let withDebug = true;
     ipcMain.on('BRegistration_init', (event, arg) => {
       win.hide();
       init_registration();
-      RegistrationWin.loadFile(path.join(dir_login,'registration.html'))
-      RegistrationWin.webContents.openDevTools();
+      RegistrationWin.loadFile(path.join(dir_login,'new_registration.html'))
     })
-
+    ipcMain.on('BLogin-Succes', (event, arg) => {
+      win.close();
+      init_login_succes();
+      
+    })
     ipcMain.on('Registration_Exit', (event, arg) => {
       RegistrationWin.close();
       win.show();
+      //login_succesWin.loadFile(path.join(dir_login,'registration.html'))
     })
   })
   
