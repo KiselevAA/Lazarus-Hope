@@ -1,0 +1,8 @@
+.body_class{
+    font-family: Roboto;
+    margin:auto;
+    width: 750px;
+    height: 1100px;
+    pointer-events:auto;
+    background-image: url("../first_time_insert/img/background.png");
+  }

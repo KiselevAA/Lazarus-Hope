@@ -29,12 +29,17 @@ window.addEventListener('DOMContentLoaded', function () {
 
     var proxyPort = 9090
     
-    var conString = 'postgres://'+iLogin.value+':'+iPassword.value+'@127.0.0.1:' + proxyPort + '/postgres'
-    console.log(conString)
-    client = new pg.Client(conString);
-    client.connect(function(err) {
-      console.log('we connected to db')
-      ipcRenderer.send('BLogin-Succes', {})
-    })  
+    var conString = 'postgres://postgres:5381@127.0.0.1:' + 9090 + '/postgres'
+
+    var pg = require('pg')
+    pclient = new pg.Client(conString);
+    pclient.connect(function(err) {
+      
+    pclient.query('SELECT db_data.first_time_check('+"'"+'artem_pacient'+"'"+') as message', (err, res) => {
+      if (err) throw err
+      console.log(res.rows[0].message)
+    pclient.end()
+    })
   })
+})
 })

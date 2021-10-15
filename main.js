@@ -1,12 +1,11 @@
 const { app, BrowserWindow, ipcMain} = require('electron')
 const path = require('path')
-const { contextIsolated } = require('process')
+const { contextIsolated, stdout } = require('process')
 const { Client } = require('ssh2');
-const pg = require('pg');
 
 const dir_login = __dirname +'/app/login';
-
-let withDebug = false;
+const dir_first_time = __dirname+'/app/first_time_insert';
+let withDebug = true;
 
   app.whenReady().then(() => {
     
@@ -45,16 +44,19 @@ let withDebug = false;
     }
 
     const win = new BrowserWindow({
-      width: 450,
-      height: 600,
+      //width: 450,
+      //height: 600,
+      width: 750,
+      height: 1100,
       titleBarOverlay: false,
       titleBarStyle: "hidden",
       frame: false,
       transparent: true,
       resizable:false,
       webPreferences: {
-        preload: path.join(dir_login, 'new_login.js'),
+        //preload: path.join(dir_login, 'new_login.js'),
         //preload: path.join(dir_login, 'index.js'),
+        preload: path.join(dir_first_time, 'first_time_insert.js'),
         contextIsolated: false
       }
     })
@@ -64,7 +66,8 @@ let withDebug = false;
 
     
       // Load Login_form
-      win.loadFile(path.join(dir_login,'new_login.html'))
+      //win.loadFile(path.join(dir_login,'new_login.html'))
+      win.loadFile(path.join(dir_first_time,'first_time_insert.html'))
       //win.loadFile('index.html')
       if (withDebug)
        {
@@ -104,6 +107,8 @@ let withDebug = false;
         ready = true;
         
       });
+
+      
     }
 
     createWindow()
@@ -120,6 +125,7 @@ let withDebug = false;
       win.hide();
       init_registration();
       RegistrationWin.loadFile(path.join(dir_login,'new_registration.html'))
+      RegistrationWin.webContents.openDevTools();
     })
     ipcMain.on('BLogin-Succes', (event, arg) => {
       win.close();
@@ -129,7 +135,7 @@ let withDebug = false;
     ipcMain.on('Registration_Exit', (event, arg) => {
       RegistrationWin.close();
       win.show();
-      //login_succesWin.loadFile(path.join(dir_login,'registration.html'))
+      
     })
   })
   
