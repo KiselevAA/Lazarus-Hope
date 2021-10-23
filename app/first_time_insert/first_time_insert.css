@@ -6,3 +6,134 @@
     pointer-events:auto;
     background-image: url("../first_time_insert/img/background.png");
   }
+.sp1{
+  font-size: 30px;
+  margin-left: 23%;
+  margin-top: 824px;
+  opacity: 0;
+  position: absolute;
+}
+.sp2{
+  font-size: 20px;
+  margin-left: 5%;
+  margin-top: 800px;
+  opacity: 0;
+  position: absolute;
+  width: 100px;
+}
+.b1{
+  background: url('../first_time_insert/img/rect_min.png') no-repeat;
+  padding-right: 30px;
+  padding-bottom: 5px;
+  height: 33px;
+  width: 199px;
+  border: 1px;
+  border-color: white;
+  position: absolute;
+  color: white;
+  font-size: 15px;
+  margin-left: 10%;
+  margin-top: 800px;
+  opacity: 0;
+  position: absolute;
+}
+.b2{
+  background: url('../first_time_insert/img/rect_min.png') no-repeat;
+  padding-right: 30px;
+  padding-bottom: 5px;
+  height: 33px;
+  width: 199px;
+  border: 0px;
+  position: absolute;
+  color: white;
+  font-size: 15px;
+  margin-left: 35%;
+  margin-top: 800px;
+  opacity: 0;
+  position: absolute;
+}
+.b3{
+  background: url('../first_time_insert/img/rect_min.png') no-repeat;
+  padding-right: 30px;
+  padding-bottom: 5px;
+  height: 33px;
+  width: 199px;
+  border: 0px;
+  position: absolute;
+  color: white;
+  font-size: 15px;
+  margin-left: 60%;
+  margin-top: 800px;
+  opacity: 0;
+  position: absolute;
+}
+.form_radio {
+	margin-bottom: 10px;
+}
+.form_radio input[type=radio] {
+	display: none;
+}
+.form_radio label {
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+	padding-left: 25px;
+	margin-right: 0;
+	line-height: 18px;
+	user-select: none;
+}
+.form_radio label:before {
+	content: "";
+	display: inline-block;
+	width: 20px;
+	height: 21px;
+	position: absolute;
+	left: 0;
+	bottom: 1px;
+	background: url('../first_time_insert/img/Uncheck.png') 0 0 no-repeat;
+}
+ 
+/* Checked */
+.form_radio input[type=radio]:checked + label:before {
+	background: url('../first_time_insert/img/Check.png') 0 0 no-repeat;
+}
+ 
+/* Hover */
+.form_radio label:hover:before {
+	filter: brightness(120%);
+}
+ 
+/* Disabled */
+.form_radio input[type=radio]:disabled + label:before {
+	filter: grayscale(100%);
+}
+.radio_cls{
+  position: absolute;
+  margin-left:15%;
+  margin-top:30%;
+  opacity: 0;
+}
+
+/*
+.radio-1{
+  
+  margin-top: 25%;
+  margin-left:40%;
+  position: absolute;
+}
+.radio-2{
+  margin-top: 25%;
+  margin-left:65%;
+  position: absolute;
+}
+.lb1{
+  margin-top: 24%;
+  margin-left:42%;
+  position: absolute;
+}
+.lb2{
+  margin-top: 24%;
+  margin-left:67%;
+  position: absolute;
+}
+*/

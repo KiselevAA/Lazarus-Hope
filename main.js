@@ -5,7 +5,7 @@ const { Client } = require('ssh2');
 
 const dir_login = __dirname +'/app/login';
 const dir_first_time = __dirname+'/app/first_time_insert';
-let withDebug = true;
+let withDebug = false;
 
   app.whenReady().then(() => {
     
